@@ -22,10 +22,12 @@
 <div>
   <!-- click is an event we are watching for -->
   <!-- onButtonClick() is evaluated as code, it is NOT a string. it is bound to the app.component.ts function -->
-  <button (click)="onButtonClick()">Generate!</button>
+  <!-- button is disabled only if length is not set (length starts at 0). length is in app.component.ts -->
+  <button [disabled]="!length " (click)="onButtonClick()">Generate!</button>
 </div>
 
-<div>
+<!-- using structural directive to only show this div if a passwordProperty exists -->
+<div *ngIf="passwordProperty">
   <label for="">Your Password</label>
   <!-- passwordProperty is being set as the actual value for input. -->
   <input [value]="passwordProperty" />
