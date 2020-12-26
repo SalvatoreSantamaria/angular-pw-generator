@@ -3,19 +3,20 @@
 <h1>Password Generator</h1>
 <div>
   <label for="">Enter Length</label>
-  <input type="text">
+  <!-- using the event object to get access to input -->
+  <input (input)="onChangeLengthInput($event.target.value)" type="text">
 </div>
 <div>
   <label>Use Letters</label>
-  <input type="checkbox">
+  <input (change)="onLettersClick()"  type="checkbox">
 </div>
 <div>
   <label>Use Numbers</label>
-  <input type="checkbox">
+  <input (change)="onNumbersClick()"  type="checkbox">
 </div>
 <div>
   <label>Use Symbols</label>
-  <input type="checkbox">
+  <input (change)="onSymbolsClick()"  type="checkbox">
 </div>
 
 <div>
@@ -31,3 +32,8 @@
   <!-- we can also call a function to set the [value]. The function would have to be in the app.component.ts file, as I included -->
   <!-- <input [value]="getPassword()" /> -->
 </div>
+
+<!-- Printing out the element using interpolation -->
+{{ passwordProperty }}
+<!-- Can also just call a function -->
+{{ interpolationFunctionCall() }}
